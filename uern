@@ -1,0 +1,38 @@
+# Função para calcular a média ponderada das notas
+def calcular_media(nota1, nota2, nota3):
+    peso_nota1 = 4
+    peso_nota2 = 5
+    peso_nota3 = 6
+
+    media = (nota1 * peso_nota1 + nota2 * peso_nota2 + nota3 * peso_nota3) / (peso_nota1 + peso_nota2 + peso_nota3)
+    return round(media, 1)
+
+# Função para determinar a situação do aluno
+def verificar_situacao(media):
+    if media >= 7.0:
+        return "Aprovado"
+    elif media >= 4.0:
+        return "Exame Final"
+    else:
+        return "Reprovado"
+
+# Função para calcular a nota necessária no Exame Final
+def calcular_nota_exame_final(media):
+    return max(0, 12.0 - media)
+
+# Notas do aluno (substitua pelos valores desejados)
+nota1 = 0.0
+nota2 = 0.0
+nota3 = 1.0
+
+# Calcula a média das notas
+media = calcular_media(nota1, nota2, nota3)
+
+# Verifica a situação do aluno
+situacao = verificar_situacao(media)
+
+if situacao == "Exame Final":
+    nota_exame_final = calcular_nota_exame_final(media)
+    print(f"Você precisa tirar pelo menos {nota_exame_final} no Exame Final para ser aprovado.")
+else:
+    print(f"Sua média é {media}. Você está {situacao} na disciplina.")
